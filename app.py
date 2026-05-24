@@ -1,16 +1,15 @@
-import streamlit as str
+import streamlit as st
 import google.generativeai as ai
 
-# 1. API Key Setup
-API_KEY = "AIzaSyCKz8tS2x1BCjrVhpHW57_Gl2eg3gGP-oI"
+# 1. API Key Setup (Secure Way)
+API_KEY = st.secrets["GEMINI_API_KEY"]
 ai.configure(api_key=API_KEY)
-
 # 2. Page Configuration
-str.set_page_config(page_title="Al Ramzan Academy Bot", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Al Ramzan Academy Bot", page_icon="🤖", layout="centered")
 
 # 3. Chatbot Header
-str.title("🤖 Al Ramzan Academy Bot")
-str.caption("Welcome! I am your AI assistant for programming and learning. Powered by Gemini.")
+st.title("🤖 Al Ramzan Academy Bot")
+st.caption("Welcome! I am your AI assistant for programming and learning. Powered by Gemini.")
 
 # 4. Chat History Initialize karna
 if "chat_history" not in str.session_state:
