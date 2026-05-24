@@ -47,4 +47,4 @@ if user_query:
         st.session_state.chat_history.append({"role": "assistant", "text": bot_response})
         
     except Exception as e:
-        s.error(f"Oho! Kuch masala hua hai: {e}")
+        st.error(f"Oho! Kuch masala hua hai: {e}")
