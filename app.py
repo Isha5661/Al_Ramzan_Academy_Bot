@@ -12,21 +12,21 @@ st.title("🤖 Al Ramzan Academy Bot")
 st.caption("Welcome! I am your AI assistant for programming and learning. Powered by Gemini.")
 
 # 4. Chat History Initialize karna
-if "chat_history" not in str.session_state:
-    str.session_state.chat_history = []
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
 
 # 5. Purani chat ko screen par dikhana
-for message in str.session_state.chat_history:
-    with str.chat_message(message["role"]):
-        str.markdown(message["text"])
+for message in st.session_state.chat_history:
+    with st.chat_message(message["role"]):
+        st.markdown(message["text"])
 
 # 6. User ka input
-user_query = str.chat_input("Ask me anything about Python, programming, or AI...")
+user_query = st.chat_input("Ask me anything about Python, programming, or AI...")
 
 if user_query:
-    with str.chat_message("user"):
-        str.markdown(user_query)
-    str.session_state.chat_history.append({"role": "user", "text": user_query})
+    with st.chat_message("user"):
+        st.markdown(user_query)
+    st.session_state.chat_history.append({"role": "user", "text": user_query})
     
     try:
         # Automatic valid model select karna
@@ -42,9 +42,9 @@ if user_query:
         else:
             bot_response = "Oho! Mujhe aapke system me koi valid Gemini model nahi mila."
         
-        with str.chat_message("assistant"):
-            str.markdown(bot_response)
-        str.session_state.chat_history.append({"role": "assistant", "text": bot_response})
+        with st.chat_message("assistant"):
+            st.markdown(bot_response)
+        st.session_state.chat_history.append({"role": "assistant", "text": bot_response})
         
     except Exception as e:
-        str.error(f"Oho! Kuch masala hua hai: {e}")
+        s.error(f"Oho! Kuch masala hua hai: {e}")
